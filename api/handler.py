@@ -24,14 +24,14 @@ def rossmann_predict():
             test_raw = pd.DataFrame(test_json, columns=test_json[0].keys())
 
         # Instantiate Rossmann class
-        pipeline = Rossman()
+        pipeline = Rossmann()
 
         # Data cleaning
         df1 = pipeline.data_cleaning(test_raw)
         # feature engineering
         df2 = pipeline.feature_eng(df1)
         # data preparation
-        df2 = pipeline.data_preparation(df2)
+        df3 = pipeline.data_preparation(df2)
         # prediction
         df_response = pipeline.get_prediction(model, test_raw, df3)
 
