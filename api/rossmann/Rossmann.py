@@ -11,19 +11,19 @@ class Rossmann(object):
     def __init__(self):
         self.home_path = "/home/elias/Repos/rossman_sales"
         self.competition_distance_scaler = pickle.load(
-            open(self.home_path + "parameters/competition_distance_scaler.pkl", "rb")
+            open(self.home_path + "/parameters/competition_distance_scaler.pkl", "rb")
         )
         self.competition_time_month_scaler = pickle.load(
-            open(self.home_path + "parameters/competition_time_month_scaler.pkl", "rb")
+            open(self.home_path + "/parameters/competition_time_month_scaler.pkl", "rb")
         )
         self.promo_time_week_scaler = pickle.load(
-            open(self.home_path + "parameters/promo_time_week_scaler.pkl", "rb")
+            open(self.home_path + "/parameters/promo_time_week_scaler.pkl", "rb")
         )
         self.year_scaler = pickle.load(
-            open(self.home_path + "parameters/year_scaler.pkl", "rb")
+            open(self.home_path + "/parameters/year_scaler.pkl", "rb")
         )
         self.store_type_scaler = pickle.load(
-            open(self.home_path + "parameters/store_type_scaler.pkl", "rb")
+            open(self.home_path + "/parameters/store_type_scaler.pkl", "rb")
         )
 
     def data_cleaning(self, dataframe):
