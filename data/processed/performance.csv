@@ -1,0 +1,6 @@
+,Model Name,MAE,MAPE,RMSE
+0,Average Model,1354.8,0.2064,1835.14
+1,Linear Regression,2078.71,0.3047,3102.64
+2,Lasso,1890.57,0.2893,2741.42
+3,Random Forest,651.34,0.0958,1023.1
+4,XGBoost,1130.0,0.1671,1632.44

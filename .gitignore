@@ -1,9 +1,11 @@
 # General
 .python-version
 .vscode
-*.csv
 *.xls
 *.xlsx
+train.csv
+test.csv
+store.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
