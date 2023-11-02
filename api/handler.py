@@ -6,7 +6,7 @@ from rossmann.Rossmann import Rossmann
 
 # loading model
 model = pickle.load(
-    open("/home/elias/Repos/rossman_sales/models/xgb_rossman.pkl", "rb")
+    open("/home/elias/Repos/rossman_sales/models/xgb_rossmann.pkl", "rb")
 )
 
 # Initialize API

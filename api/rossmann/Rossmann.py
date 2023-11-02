@@ -282,11 +282,13 @@ class Rossmann(object):
             "promo2_since_year",
             "competition_time_month",
             "promo_time_week",
+            "month_sin",
             "month_cos",
             "day_sin",
             "day_cos",
             "day_of_week_sin",
             "day_of_week_cos",
+            "week_of_year_sin",
             "week_of_year_cos",
         ]
 
