@@ -107,7 +107,7 @@ def index():
             return Response("Ok", status=200)
 
         elif command == "/about":
-            msg = "<b>About this project:</b>\n\nThis bot was developed as a machine learning portifolio project, it uses public data and a XGBoost Regressor Model to predict Rossmann Store sales for the next six weeks.\n\nVisit the project github page at: rossmann.eliasbatista.com\n\nTo get in touch with the author:\nTelegram: @eliasbatista\nPortfolio: www.eliasbatista.com"
+            msg = "<b>About this project:</b>\n\nThis bot was developed as a machine learning portifolio project, it uses public data and a XGBoost Regressor Model to predict Rossmann Store sales for the next six weeks.\n\nVisit the project github page at: eliasbatista.com/rossmann_sales\n\nTo get in touch with the author:\nTelegram: @eliasbatista\nPortfolio: www.eliasbatista.com"
             send_message(chat_id, msg)
             return Response("Ok", status=200)
 
@@ -138,7 +138,7 @@ def index():
                 store = d2["store"].values[0]
                 prediction = d2["prediction"].values[0]
 
-                msg = f"Store <b>{store}</b> will sell <b>R${prediction:,.2f}</b> in the next six weeks."
+                msg = f"Store <b>{store}</b> will sell <b>$ {prediction:,.2f}</b> in the next six weeks."
 
                 send_message(chat_id, msg)
                 return Response("Ok", status=200)
