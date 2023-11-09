@@ -2,7 +2,7 @@ import json
 
 import pandas as pd
 import requests
-from flask import Flask, Response, request
+from fastapi import FastAPI, Request
 
 # Bot token
 TOKEN = "6987629551:AAGrX5xJynwfGr30SVROrTA2vZ_Z1-1LPwo"
@@ -25,8 +25,8 @@ https://api.telegram.org/bot6987629551:AAGrX5xJynwfGr30SVROrTA2vZ_Z1-1LPwo/setWe
 def send_message(chat_id, text):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&parse_mode=html"
 
-    r = requests.post(url, json={"text": text})
-    print("Status Code {r.status_code}")
+    response = requests.post(url, json={"text": text})
+    print(f"Status Code {response.status_code}")
 
     return None
 
@@ -63,9 +63,9 @@ def predict(data):
     url = "https://rossmann-6xtx.onrender.com/rossmann/predict"
     header = {"Content-type": "application/json"}
 
-    r = requests.post(url, data=data, headers=header)
-    print(f"Status Code {r.status_code}")
-    d1 = pd.DataFrame(r.json(), columns=r.json()[0].keys())
+    response = requests.post(url, data=data, headers=header)
+    print(f"Status Code {response.status_code}")
+    d1 = pd.DataFrame(response.json(), columns=response.json()[0].keys())
 
     return d1
 
@@ -86,71 +86,63 @@ def parse_message(message):
 
 
 # API initialize
-app = Flask(__name__)
+app = FastAPI()
 
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-    if request.method:
-        message = request.get_json()
+@app.post("/")
+async def index(request: Request):
+    message = await request.json()
 
-        chat_id, store_id, command = parse_message(message)
+    chat_id, store_id, command = parse_message(message)
 
-        if command == "/start":
-            msg = "<b>Welcome to Rossmann Sales Prediction Bot</b>\n\nThis bot uses machine learning model to simulate prediction for Rossmann Store sales in the next six weeks.\n\nType /help to see available commands.\n\n<b>Author:</b> @eliasbatista | www.eliasbatista.com\n\n<b>Note: First prediction might take a while.</b>"
-            send_message(chat_id, msg)
-            return Response("Ok", status=200)
+    if command == "/start":
+        msg = "<b>Welcome to Rossmann Sales Prediction Bot</b>\n\nThis bot uses machine learning model to simulate prediction for Rossmann Store sales in the next six weeks.\n\nType /help to see available commands.\n\n<b>Author:</b> @eliasbatista | www.eliasbatista.com\n\n<b>Note: First prediction might take a while.</b>"
+        send_message(chat_id, msg)
+        return "Ok"
 
-        elif command == "/help":
-            msg = "<b>Available commands:</b>\n\n/about to know iformation about this project\n/help to see available commands\n/prediction to receive prediction instrunctions"
-            send_message(chat_id, msg)
-            return Response("Ok", status=200)
+    elif command == "/help":
+        msg = "<b>Available commands:</b>\n\n/about to know iformation about this project\n/help to see available commands\n/prediction to receive prediction instrunctions"
+        send_message(chat_id, msg)
+        return "Ok"
 
-        elif command == "/about":
-            msg = "<b>About this project:</b>\n\nThis bot was developed as a machine learning portifolio project, it uses public data and a XGBoost Regressor Model to predict Rossmann Store sales for the next six weeks.\n\nVisit the project github page at: eliasbatista.com/rossmann_sales\n\nTo get in touch with the author:\nTelegram: @eliasbatista\nPortfolio: www.eliasbatista.com"
-            send_message(chat_id, msg)
-            return Response("Ok", status=200)
+    elif command == "/about":
+        msg = "<b>About this project:</b>\n\nThis bot was developed as a machine learning portifolio project, it uses public data and a XGBoost Regressor Model to predict Rossmann Store sales for the next six weeks.\n\nVisit the project github page at: eliasbatista.com/rossmann_sales\n\nTo get in touch with the author:\nTelegram: @eliasbatista\nPortfolio: www.eliasbatista.com"
+        send_message(chat_id, msg)
+        return "Ok"
 
-        elif command == "/prediction":
-            msg = "To make sales prediction type /42 (you can change 42 for any valid Store ID)"
-            send_message(chat_id, msg)
-            return Response("Ok", status=200)
+    elif command == "/prediction":
+        msg = "To make sales prediction type /42 (you can change 42 for any valid Store ID)"
+        send_message(chat_id, msg)
+        return "Ok"
 
-        elif store_id == "error":
-            msg = "Not a valid command, /help to see a list of available commands."
-            send_message(chat_id, msg)
-            return Response("Ok", status=200)
-
-        else:
-            # load data
-            data = load_dataset(store_id)
-
-            if data != "error":
-                # predict
-                d1 = predict(data)
-                d2 = (
-                    d1.loc[:, ["store", "prediction"]]
-                    .groupby("store")
-                    .sum()
-                    .reset_index()
-                )
-
-                store = d2["store"].values[0]
-                prediction = d2["prediction"].values[0]
-
-                msg = f"Store <b>{store}</b> will sell <b>$ {prediction:,.2f}</b> in the next six weeks."
-
-                send_message(chat_id, msg)
-                return Response("Ok", status=200)
-
-            else:
-                msg = "Store ID not valid."
-                send_message(chat_id, msg)
-                return Response("Ok", status=200)
+    elif store_id == "error":
+        msg = "Not a valid command, /help to see a list of available commands."
+        send_message(chat_id, msg)
+        return "Ok"
 
     else:
-        return "<b>Rossmann Sales Prediction Bot</b>"
+        # load data
+        data = load_dataset(store_id)
+
+        if data != "error":
+            # predict
+            d1 = predict(data)
+            d2 = d1.loc[:, ["store", "prediction"]].groupby("store").sum().reset_index()
+
+            store = d2["store"].values[0]
+            prediction = d2["prediction"].values[0]
+
+            msg = f"Store <b>{store}</b> will sell <b>€ {prediction:,.2f}</b> in the next six weeks."
+            send_message(chat_id, msg)
+            return "Ok"
+
+        else:
+            msg = "Store ID not valid."
+            send_message(chat_id, msg)
+            return "Ok"
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=5000)
