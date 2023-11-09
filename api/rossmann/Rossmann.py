@@ -9,7 +9,7 @@ import pandas as pd
 
 class Rossmann(object):
     def __init__(self):
-        self.home_path = "/home/elias/Repos/rossman_sales"
+        self.home_path = "/home/elias/Repos/rossmann_sales"
         self.competition_distance_scaler = pickle.load(
             open(self.home_path + "/parameters/competition_distance_scaler.pkl", "rb")
         )
@@ -30,8 +30,7 @@ class Rossmann(object):
         # Rename columns
         cols_old = list(dataframe)
         # Function from rename
-        snakecase = lambda x: inflection.underscore(x)
-        cols_new = list(map(snakecase, cols_old))
+        cols_new = list(map(lambda x: inflection.underscore(x), cols_old))
         # Renaming columns
         dataframe.columns = cols_new
 
