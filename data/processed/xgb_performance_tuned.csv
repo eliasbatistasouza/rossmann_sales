@@ -1,0 +1,2 @@
+,Model Name,MAE,MAPE,RMSE
+0,XGBoost Regressor,786.75,0.1163,1143.75
