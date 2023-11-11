@@ -27,17 +27,14 @@ async def rossmann_predict(request: Request):
 
         # Data cleaning
         df1 = pipeline.data_cleaning(test_raw)
-        # Feature engineering
+        # feature engineering
         df2 = pipeline.feature_eng(df1)
-        # Data preparation
+        # data preparation
         df3 = pipeline.data_preparation(df2)
-        # Prediction
+        # prediction
         df_response = pipeline.get_prediction(model, test_raw, df3)
 
         return df_response
-
-    else:
-        return {}
 
 
 if __name__ == "__main__":
