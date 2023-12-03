@@ -136,7 +136,7 @@ O funcionamento do bot pode ser visto abaixo.
 
 <div align="center">
 
-![Rossmann](/docs/img/rossmannbot.mp4)
+
 
 </div>
 
