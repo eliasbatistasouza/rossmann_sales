@@ -90,7 +90,7 @@ Em seguida análisamos a performance dos modelos utilizando *cross validation*, 
 Após os testes, o modelo escolhido para implementação da solução final foi o **XGBoost Regressor** 
 
 > [!NOTE]
-> O modelo de XGBoost Regressor foi preferido,entre outros de melhor perforemance, por sua rápida implementação e menor tamanho de arquivo. Essas características são importantes quando se deseja colocar o modelo em produção.
+> O modelo de **XGBoost Regressor** foi preferido,entre outros de melhor performance, por sua **rápida implementação e menor tamanho de arquivo**. Essas características são importantes quando se deseja colocar o modelo em produção.
 
 Para realizar a tunangem de hiperparâmetros foi utilizado o algoritimo de **Random Search**, o que gerou um modelo com a seguinte performance:
 
@@ -136,10 +136,9 @@ O funcionamento do bot pode ser visto abaixo.
 
 <div align="center">
 
-
+![Rossmann](/docs/img/rossmannbot.mp4)
 
 </div>
-
 
 ## Conclusão
 
