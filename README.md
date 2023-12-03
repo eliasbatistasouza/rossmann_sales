@@ -70,10 +70,7 @@ Para escolher o modelo ideal, testa-se vários modelos se modificar parâmetros 
 
 </div>
 
->[!IMPORTANT] Conclusão  
->Esses dados mostram que o **modelos lineares não performam melhor que o modelo de média**, o que indica que **esses dados precisam de modelos mais complexos**.  
-
-> [!IMPORTANT]Conclusão
+> [!NOTE]
 > Esses dados mostram que o **modelos lineares não performam melhor que o modelo de média**, o que indica que **esses dados precisam de modelos mais complexos**.
 
 Em seguida análisamos a performance dos modelos utilizando *cross validation*, e os resultados são:
@@ -92,8 +89,8 @@ Em seguida análisamos a performance dos modelos utilizando *cross validation*, 
 ## Modelo Final
 Após os testes, o modelo escolhido para implementação da solução final foi o **XGBoost Regressor** 
 
->[!NOTE] Importante
->O modelo de XGBoost Regressor foi preferido,entre outros de melhor perforemance, por sua rápida implementação e menor tamanho de arquivo. Essas características são importantes quando se deseja colocar o modelo em produção.
+> [!NOTE]
+> O modelo de XGBoost Regressor foi preferido,entre outros de melhor perforemance, por sua rápida implementação e menor tamanho de arquivo. Essas características são importantes quando se deseja colocar o modelo em produção.
 
 Para realizar a tunangem de hiperparâmetros foi utilizado o algoritimo de **Random Search**, o que gerou um modelo com a seguinte performance:
 
