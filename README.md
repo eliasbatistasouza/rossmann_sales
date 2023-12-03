@@ -73,8 +73,8 @@ Para escolher o modelo ideal, testa-se vários modelos se modificar parâmetros 
 >[!IMPORTANT] Conclusão  
 >Esses dados mostram que o **modelos lineares não performam melhor que o modelo de média**, o que indica que **esses dados precisam de modelos mais complexos**.  
 
-> [!IMPORTANT]
-> Crucial information necessary for users to succeed.
+> [!IMPORTANT] Conclusão  
+> Esses dados mostram que o **modelos lineares não performam melhor que o modelo de média**, o que indica que **esses dados precisam de modelos mais complexos**.
 
 Em seguida análisamos a performance dos modelos utilizando *cross validation*, e os resultados são:
 
