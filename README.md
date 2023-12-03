@@ -136,7 +136,7 @@ O funcionamento do bot pode ser visto abaixo.
 
 <div align="center">
 
-
+https://github.com/eliasbatistasouza/rossmann_sales/assets/8121717/274dff03-ca4b-4332-b2ea-4d4c244e1e51
 
 </div>
 
