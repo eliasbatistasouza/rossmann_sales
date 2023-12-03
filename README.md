@@ -58,7 +58,7 @@ Nessa fase utilizamos a Coeficiente de Pearson para analisar a relaação entre 
 ## Modelo de Machine Learning
 Para escolher o modelo ideal, testa-se vários modelos se modificar parâmetros e compara suas métricas com um modelo simples de média. O resultado foi:  
 
-<center>
+<div align="center">
 
 | **Model**             | **MAE** | **MAPE** | **RMSE** |
 |-----------------------|:---------:|:----------:|:----------:|
@@ -68,14 +68,17 @@ Para escolher o modelo ideal, testa-se vários modelos se modificar parâmetros 
 | **Lasso**             | 1890.57 | 0.2893   | 2741.42  |
 | **Linear Regression** | 2078.71 | 0.3047   | 3102.64  |
 
-</center>
+</div>
 
 >[!IMPORTANT] Conclusão  
 >Esses dados mostram que o **modelos lineares não performam melhor que o modelo de média**, o que indica que **esses dados precisam de modelos mais complexos**.  
 
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
 Em seguida análisamos a performance dos modelos utilizando *cross validation*, e os resultados são:
 
-<center>
+<div align="center">
 
 | **Model**             | **MAE CV**         | **MAPE CV**       | **RMSE CV**        |
 |-----------------------|:--------------------:|:-------------------:|:--------------------:|
@@ -84,7 +87,7 @@ Em seguida análisamos a performance dos modelos utilizando *cross validation*, 
 | **Lasso**             | 1947.16 +/- 132.37 | 0.2863 +/- 0.0033 | 2814.28 +/- 214.06 |
 | **Linear Regression** | 1927.38 +/- 95.66  | 0.298 +/- 0.0153  | 2724.56 +/- 179.52 |
 
-</center>
+</div>
 
 ## Modelo Final
 Após os testes, o modelo escolhido para implementação da solução final foi o **XGBoost Regressor** 
@@ -94,13 +97,13 @@ Após os testes, o modelo escolhido para implementação da solução final foi 
 
 Para realizar a tunangem de hiperparâmetros foi utilizado o algoritimo de **Random Search**, o que gerou um modelo com a seguinte performance:
 
-<center>
+<div align="center">
 
 | **Model**             | **MAE** | **MAPE** | **RMSE** |
 |-----------------------|:-------:|:--------:|:--------:|
 | **XGBoost Regressor** | 729.5   | 0.1066   | 1088.71  |
 
-</center>
+</div>
 
 ## Performance
 É posssível analisar a performance do modelo final de algumas maneiras diferentes.  
@@ -109,7 +112,7 @@ Para realizar a tunangem de hiperparâmetros foi utilizado o algoritimo de **Ran
 
 - É viavel somar o faturamento previsto para todas as lojas, e projetar cenários de faturamento total a partir do erro médio.
 
-<center>
+<div align="center">
 
 |**Scenario**    | **Values**       |
 |:--------------:|:----------------:|
@@ -117,7 +120,7 @@ Para realizar a tunangem de hiperparâmetros foi utilizado o algoritimo de **Ran
 | Worst Scenario | € 249,995,088.00 |
 | Best Scenario  | € 315,796,640.00 |
 
-</center>
+</div>
 
 - O gráfico superior direito mostra que o **modelo está subestimando** os valores, caso a superestimação seja melhor para o modelo de negócio o modelo deve ser ajustado.
 ![Model Performance](/docs/img/model_performance.png)
