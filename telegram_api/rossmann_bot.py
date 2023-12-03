@@ -7,7 +7,10 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 # Bot token
-TOKEN = os.environ.get("TOKEN")
+TOKEN = "6987629551:AAGrX5xJynwfGr30SVROrTA2vZ_Z1-1LPwo"
+
+# setWebhook
+# https://api.telegram.org/bot6987629551:AAGrX5xJynwfGr30SVROrTA2vZ_Z1-1LPwo/setWebhook?url=https://8fb1e61659b96c.lhr.life
 
 app = FastAPI()
 
@@ -31,10 +34,6 @@ def parse_message(text):
 
 
 def handle_command(chat_id, command):
-    """
-    Function to handle Telegram commands.
-    """
-
     # Check the command and perform the corresponding action
     if command == "start":
         msg = "<b>Welcome to Rossmann Sales Prediction Bot</b>\n\nThis bot uses machine learning model to simulate prediction for Rossmann Store sales in the next six weeks.\n\nType /help to see available commands.\n\n<b>Author:</b> @eliasbatista | www.eliasbatista.com\n\n<b>Note: First prediction might take a while.</b>"
@@ -64,7 +63,7 @@ def send_message(chat_id, text):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&parse_mode=html"
 
     response = requests.post(url, params={"text": text})
-    print(f"Status Code {response.status_code}")
+    print(f"Message Status Code: {response.status_code}")
 
     return JSONResponse(content={"message": "Ok"}, status_code=200)
 
@@ -102,8 +101,8 @@ def predict(data):
     # API call
     url = "https://rossmann-6xtx.onrender.com/rossmann/predict"
 
-    response = requests.post(url, json=data)
-    print(f"Status Code {response.status_code}")
+    response = requests.post(url, json=data, timeout=90)
+    print(f"Request Status Code: {response.status_code}")
     prediction = json.loads(response.json())
 
     return prediction
