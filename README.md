@@ -1,14 +1,3 @@
-<!-- # Rossman Sales
-
-Esse repositório contém os arquivos criados no curso DS em produção da Comunidade DS.
-
-# Base de Dados
-
-Aqui você pode encontrar os arquivos utilizados nos exercícios do curso:
-
-(Arquivos CSV)[https://www.kaggle.com/competitions/rossmann-store-sales/data] -->
-
-<!--- LANGUAGE --->
 <h6 align="center"><a href="/README.md">PORTUGUÊS</a> | <a href="/README_en.md">ENGLISH</a>
 </h6>
 <br>
@@ -28,7 +17,7 @@ A Rossmann opera mais de 3.000 drogarias em 7 países europeus. Atualmente, os g
 A Rossmann está desafiando você a prever 6 semanas de vendas diárias para 1.115 lojas localizadas em toda a Alemanha. Previsões de vendas confiáveis ​​permitem que os gerentes de loja criem cronogramas de funcionários eficazes que aumentam a produtividade e a motivação. Ao ajudar a Rossmann a criar um modelo de previsão robusto, você ajudará os gerentes de loja a permanecerem focados no que é mais importante para eles: seus clientes e suas equipes!
 
 ## Dados
-Os dados utilizados para treinar o modelo foram obtidos do Kaggle, no desafio "Rossmann Store Sales". Os dados incluem informações sobre as vendas, promoções, feriados, condições climáticas e outros fatores que podem influenciar as vendas.
+Os dados utilizados nesse problema foram obtidos do Kaggle, no [desafio "Rossmann Store Sales"](https://www.kaggle.com/c/rossmann-store-sales). Os dados incluem informações sobre as vendas, promoções, feriados, condições climáticas e outros fatores que podem influenciar as vendas.
 
 ## Solução
 A solução proposta consiste em um modelo de machine learning que possa prever as vendas das lojas Rossmann nas próximas seis semanas. Esse modelo está hospedado em nuvem, e pode ser acessado através de bot de Telegram a qualquer momento, assim os stakeholders do projeto tem a previsão de vendas de suas lojas sempre à disposição.
@@ -44,19 +33,19 @@ Análise da distriuição de cada variável de forma isolada. Nessa fase foi pos
 ![Target Histplot](/docs/img/target.png)
 
 ### **Análise Bivariada**  
-Cada variável é analisada em relação a *variável resposta*. Nessa fase criamos e validamos uma lista de hióteses que podem trazer *insights* sobre os dados. Algumas descobertas importantes foram:
+Cada variável é analisada em relação a *variável resposta*. Nessa fase uma lista de hióteses que podem trazer *insights* sobre os dados é criada e então validada. Algumas descobertas importantes foram:
 
-- Theres **no clear correlation** between competition distance and sales.  
-- Theres **no clear correlation** between competitors age and sales.
-- There is **no clear growth trend** in sales through the years. But there is a seasonality trend.
+- **Não há correlação clara** entre distancia dos competidores e vendas.  
+- **Não há correlação clara** entre idade dos competidores  e vendas.  
+- **Não há tendencia clara de crecimento** de vendas ao passar dos anos, porém existe uma tendencia sazonal.
 
 ### **Análise Multivariada**  
-Nessa fase utilizamos a Coeficiente de Pearson para analisar a relaação entre todas as variáveis disponíveis.
+Nessa fase o Coeficiente de Pearson foi utilizado para analisar a relação entre todas as variáveis disponíveis.
 
 ![Heatmap](docs/img/multivariate.png)
 
 ## Modelo de Machine Learning
-Para escolher o modelo ideal, testa-se vários modelos se modificar parâmetros e compara suas métricas com um modelo simples de média. O resultado foi:  
+Para escolher o modelo ideal, testa-se vários modelos sem modificar parâmetros e compara suas métricas com um modelo simples de média. O resultado foi:  
 
 <div align="center">
 
@@ -73,7 +62,7 @@ Para escolher o modelo ideal, testa-se vários modelos se modificar parâmetros 
 > [!NOTE]
 > Esses dados mostram que o **modelos lineares não performam melhor que o modelo de média**, o que indica que **esses dados precisam de modelos mais complexos**.
 
-Em seguida análisamos a performance dos modelos utilizando *cross validation*, e os resultados são:
+Em seguida a performance dos modelos é analisada utilizando *cross validation*, e os resultados são:
 
 <div align="center">
 
@@ -130,9 +119,9 @@ Os resultados das predições também podem ser acessados através de um bot do 
 <div align="center">
 <a href = "t.me/SalesPredRossmannBot" target="_blank"><img src="https://img.shields.io/badge/Telegram_Bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="telegram bot badge"></a>
 </div>
+<br>
 
-
-O funcionamento do bot pode ser visto abaixo.
+O funcionamento do bot pode ser visto abaixo. Seu codigo está [disponível aqui](https://github.com/eliasbatistasouza/rossmann_bot).
 
 <div align="center">
 
@@ -141,16 +130,17 @@ https://github.com/eliasbatistasouza/rossmann_sales/assets/8121717/274dff03-ca4b
 </div>
 
 ## Conclusão
+Após o primeiro ciclo de desenvolvimento tem-se um produto funcional e que atende aos requisitos necessários do problema de negócio proposto.
+
+A possibilidade de visualizar os faturamento de todas as lojas a qualquer momento em um dispositível móvel confere maior agilidade e assertividade as decisões a serem tomadas pela empresa.
 
 ## Próximos Passos
-- Testar outras features
-- Testar outros algoritmos de fine tuning
-- 
+- Testar o modelo com outras features
+- Utilizar outros métodos de fine tuning como Grid Search ou Bayesian Search
+- Testar outros algoritmos de machine learning
 
 ## Licença
 Distribuído sob a licença MIT. Veja `LICENSE.txt` para mais informações.
-
-## Reconhecimentos
 
 ## Autor
 Feito com ❤️ por Elias Batista 👋🏽 Entre em contato!
