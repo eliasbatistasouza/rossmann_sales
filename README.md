@@ -117,7 +117,7 @@ O modelo final foi disponibilizado por meio de uma API desenvolvida com [FastAPI
 Os resultados das predições também podem ser acessados através de um bot do telegram.
 
 <div align="center">
-<a href = "t.me/SalesPredRossmannBot" target="_blank"><img src="https://img.shields.io/badge/Telegram_Bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="telegram bot badge"></a>
+<a href = "https://t.me/SalesPredRossmannBot" target="_blank"><img src="https://img.shields.io/badge/Telegram_Bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="telegram bot badge"></a>
 </div>
 <br>
 
