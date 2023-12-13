@@ -28,7 +28,7 @@ A primeira ação para solucionar o problema proposto foi a realização de uma 
 Foram conduzidas três tipos de análises:  
 
 ### **Análise Univariada**  
-Análise da distriuição de cada variável de forma isolada. Nessa fase foi possível observar, por exemplo, que **a variável resposta não possui uma distribuição normal**.
+Análise da distriuição de cada variável de forma isolada. Nessa fase foi possível observar, por exemplo, que **a variável resposta possui uma distribuição aproximadamente normal**.
 
 ![Target Histplot](/docs/img/target.png)
 

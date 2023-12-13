@@ -28,7 +28,7 @@ The first step to solve the proposed problem was to carry out a data description
 Three types of analyzes were conducted:
 
 ### **Univariate Analysis**
-Analysis of the distribution of each variable in isolation. At this stage it was possible to observe, for example, that **the response variable does not have a normal distribution**.
+Analysis of the distribution of each variable in isolation. At this stage it was possible to observe, for example, that **the response variable has a somewhat normal distribution**.
 
 ![Target Histplot](/docs/img/target.png)
 
