@@ -40,9 +40,13 @@ Each variable is analyzed in relation to the *target variable*. In this phase, a
 - There is **no clear growth trend** in sales through the years, But there is a seasonality trend.
 
 ### **Multivariate Analysis**
-Here, the Pearson Coefficient is used to analyze the relationship between all available variables.
+Here, the **Pearson Coefficient** was used to analyze the relationship between numerical variables;
 
-![Heatmap](docs/img/multivariate.png)
+![Numerical Varialbes Heatmap](docs/img/multivariate.png)
+
+And *Cramér's V* was used to analyze categorical variables.
+
+![Categorical Variables Heatmap](docs/img/multi_cat.png)
 
 ## Machine Learning Model
 To choose the ideal model, several models are tested without modifying parameters and comparing their metrics with a simple average model. The result was:

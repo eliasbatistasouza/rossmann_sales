@@ -40,9 +40,13 @@ Cada variável é analisada em relação a *variável resposta*. Nessa fase uma 
 - **Não há tendencia clara de crecimento** de vendas ao passar dos anos, porém existe uma tendencia sazonal.
 
 ### **Análise Multivariada**  
-Nessa fase o Coeficiente de Pearson foi utilizado para analisar a relação entre todas as variáveis disponíveis.
+Nessa fase o **Coeficiente de Pearson** foi utilizado para analisar a relação entre as variáveis numéricas;
 
-![Heatmap](docs/img/multivariate.png)
+![Numerical Varialbes Heatmap](docs/img/multivariate.png) 
+
+Enquanto o **V de Cramér** foi utilizando para as variáveis categóricas.
+
+![Categorical Variables Heatmap](docs/img/multi_cat.png)
 
 ## Modelo de Machine Learning
 Para escolher o modelo ideal, testa-se vários modelos sem modificar parâmetros e compara suas métricas com um modelo simples de média. O resultado foi:  
@@ -132,7 +136,7 @@ https://github.com/eliasbatistasouza/rossmann_sales/assets/8121717/274dff03-ca4b
 ## Conclusão
 Após o primeiro ciclo de desenvolvimento tem-se um produto funcional e que atende aos requisitos necessários do problema de negócio proposto.
 
-A possibilidade de visualizar os faturamento de todas as lojas a qualquer momento em um dispositível móvel confere maior agilidade e assertividade as decisões a serem tomadas pela empresa.
+A possibilidade de visualizar os faturamento de todas as lojas a qualquer momento em um dispositívo móvel confere maior agilidade e assertividade as decisões a serem tomadas pela empresa.
 
 ## Próximos Passos
 - Testar o modelo com outras features
